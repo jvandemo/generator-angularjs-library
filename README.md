@@ -1,8 +1,8 @@
 # Generator-angularjs-library
 
-A generator for Yeoman to generate the boilerplate for creating an AngularJS library that can be used in any AngularJS app.
+A generator for [Yeoman](http://yeoman.io) to generate the boilerplate for creating an [AngularJS](http://www.angularjs.org) library that can be used in any AngularJS app.
 
-If you want to build a standalone AngularJS library with directives, filters or services, then this generator allows you to rapidly create the boilerplate for your new library, including the grunt configuration for building your library files and karma configuration for testing your code.
+If you want to build a standalone AngularJS library with directives, filters or services, then this generator allows you to rapidly create the boilerplate for your new library, including the [grunt](http://gruntjs.com/) configuration for building your library files and [karma](http://karma-runner.github.io) configuration for testing your code.
 
 ## Getting started
 
@@ -54,9 +54,10 @@ Here's an overview of the files that are automatically generated for you:
 
 ## What's left for you
 
-- Add code to your library
-- Build your library
-- Test your code
+- Add custom code to your library
+- Build your library files for distribution (see below)
+- Test your code and add your own tests (see below)
+- Use your library in any AngularJS app by adding it as a required module in your app definition
 
 ## How to add code to your library
 
