@@ -17,5 +17,8 @@ angular.module('<%= libraryName %>',
         '<%= libraryName %>.config'<% if (includeModuleDirectives){ %>,
         '<%= libraryName %>.directives'<% } %><% if (includeModuleFilters){ %>,
         '<%= libraryName %>.filters'<% } %><% if (includeModuleServices){ %>,
-        '<%= libraryName %>.services'<% } %>
+        '<%= libraryName %>.services'<% } %><% if (includeAngularModuleResource){ %>,
+        'ngResource'<% } %><% if (includeAngularModuleCookies){ %>,
+        'ngCookies'<% } %><% if (includeAngularModuleSanitize){ %>,
+        'ngSanitize'<% } %>
     ]);
