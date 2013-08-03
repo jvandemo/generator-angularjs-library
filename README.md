@@ -2,6 +2,8 @@
 
 A generator for Yeoman to generate the boilerplate for creating an AngularJS library that can be used in any AngularJS app.
 
+If you want to build a standalone AngularJS library with directives, filters or services, then this generator allows you to rapidly create the boilerplate for your new library, including the grunt configuration for building your library files and karma configuration for testing your code.
+
 ## Getting started
 
 - Make sure you have [yo](https://github.com/yeoman/yo) installed:
