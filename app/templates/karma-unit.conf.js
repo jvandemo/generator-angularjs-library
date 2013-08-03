@@ -15,7 +15,7 @@ module.exports = function(config) {
         files: [
             'components/angular/angular.js'<% if (includeAngularModuleCookies) { %>,
             'components/angular-cookies/angular-cookies.js'<% } %><% if (includeAngularModuleResource) { %>,
-            'components/angular-resource/angular-resource.js<% } %><% if (includeAngularModuleSanitize) { %>',
+            'components/angular-resource/angular-resource.js'<% } %><% if (includeAngularModuleSanitize) { %>,
             'components/angular-sanitize/angular-sanitize.js'<% } %>,
             'components/angular-mocks/angular-mocks.js',
             'dist/<%= libraryName %>.js',
