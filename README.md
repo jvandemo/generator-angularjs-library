@@ -16,7 +16,7 @@ If you want to build a standalone AngularJS library with directives, filters or 
 
 The generator:
 
-- creates a `src` directory with the boilerplate code for your AngularJS library
+- creates a `src` directory structure with the boilerplate code for your AngularJS library
 - creates a `test` directory structure to store your unit tests and e2e tests
 - creates a sample unit test in the `test/unit/` directory
 - creates a custom `Gruntfile.js` to build, minify and uglify your library
