@@ -83,5 +83,9 @@ There are two directory structures for storing tests:
 
 To run your unit tests: `karma start ./karma-unit.conf.js`
 
+## Frequently asked questions
+
+- [Why is there a `.prefix` and a `.suffix` file and why do they do?](https://github.com/jvandemo/generator-angularjs-library/issues/2)
+
 ## License
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
