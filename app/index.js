@@ -6,6 +6,11 @@ var yeoman = require('yeoman-generator');
 
 var AngularjsLibraryGenerator = module.exports = function AngularjsLibraryGenerator(args, options, config) {
         yeoman.generators.Base.apply(this, arguments);
+        
+        // Try to determine the name
+        this.argument('appname', { type: String, required: false });
+        this.appname = this.appname || path.basename(process.cwd());
+
 
         this.on('end', function () {
             this.installDependencies({ skipInstall: options['skip-install'] });
@@ -27,7 +32,7 @@ AngularjsLibraryGenerator.prototype.askFor = function askFor() {
         {
             name: 'libraryName',
             message: 'What do you want to call your library?',
-            default: 'yourLibrary'
+            default: this.appname
         },
         {
             type: 'confirm',
