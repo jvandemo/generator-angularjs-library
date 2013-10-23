@@ -1,15 +1,21 @@
 {
-    "name": "<%= libraryName %>",
+    "name": "<%= _.slugify(libraryName) %>",
     "version": "0.0.0",
+    "main": ["dist/<%= libraryName %>.js"],
+    "ignore": [
+        "src",
+        "test",
+        "Gruntfile.js",
+        "**/.*"
+    ],
     "dependencies": {
-        "angular": "~1.0.7"<% if (includeAngularModuleResource) { %>,
-        "angular-resource": "~1.0.7"<% } %><% if (includeAngularModuleCookies) { %>,
-        "angular-cookies": "~1.0.7"<% } %><% if (includeAngularModuleSanitize) { %>,
-        "angular-sanitize": "~1.0.7"<% } %>
+        "angular": "~1.0.8"<% if (includeAngularModuleResource) { %>,
+        "angular-resource": "~1.0.8"<% } %><% if (includeAngularModuleCookies) { %>,
+        "angular-cookies": "~1.0.8"<% } %><% if (includeAngularModuleSanitize) { %>,
+        "angular-sanitize": "~1.0.8"<% } %>
     },
     "devDependencies": {
-        "angular-mocks": "~1.0.7",
-        "angular-scenario": "~1.0.7"
+        "angular-mocks": "~1.0.8",
+        "angular-scenario": "~1.0.8"
     }
 }
-
