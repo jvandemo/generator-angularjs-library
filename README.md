@@ -87,5 +87,11 @@ To run your unit tests: `karma start ./karma-unit.conf.js`
 
 - [Why is there a `.prefix` and a `.suffix` file and why do they do?](https://github.com/jvandemo/generator-angularjs-library/issues/2)
 
+## Change log
+
+### v1.0.3
+
+- Added chalk dependency
+
 ## License
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
