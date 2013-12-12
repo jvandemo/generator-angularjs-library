@@ -1,7 +1,7 @@
 {
-    "name": "<%= _.slugify(libraryName) %>",
+    "name": "<%= config.libraryName.slugified %>",
     "version": "0.0.0",
-    "main": ["dist/<%= libraryName %>.js"],
+    "main": ["dist/<%= config.libraryName.slugified %>.js"],
     "ignore": [
         "src",
         "test",
@@ -9,9 +9,9 @@
         "**/.*"
     ],
     "dependencies": {
-        "angular": "~1.0.8"<% if (includeAngularModuleResource) { %>,
-        "angular-resource": "~1.0.8"<% } %><% if (includeAngularModuleCookies) { %>,
-        "angular-cookies": "~1.0.8"<% } %><% if (includeAngularModuleSanitize) { %>,
+        "angular": "~1.0.8"<% if (config.includeAngularModuleResource) { %>,
+        "angular-resource": "~1.0.8"<% } %><% if (config.includeAngularModuleCookies) { %>,
+        "angular-cookies": "~1.0.8"<% } %><% if (config.includeAngularModuleSanitize) { %>,
         "angular-sanitize": "~1.0.8"<% } %>
     },
     "devDependencies": {

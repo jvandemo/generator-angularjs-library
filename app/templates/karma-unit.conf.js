@@ -13,12 +13,12 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
-            'components/angular/angular.js'<% if (includeAngularModuleCookies) { %>,
-            'components/angular-cookies/angular-cookies.js'<% } %><% if (includeAngularModuleResource) { %>,
-            'components/angular-resource/angular-resource.js'<% } %><% if (includeAngularModuleSanitize) { %>,
-            'components/angular-sanitize/angular-sanitize.js'<% } %>,
-            'components/angular-mocks/angular-mocks.js',
-            'dist/<%= libraryName %>.js',
+            'bower/angular/angular.js'<% if (config.includeAngularModuleCookies) { %>,
+            'bower/angular-cookies/angular-cookies.js'<% } %><% if (config.includeAngularModuleResource) { %>,
+            'bower/angular-resource/angular-resource.js'<% } %><% if (config.includeAngularModuleSanitize) { %>,
+            'bower/angular-sanitize/angular-sanitize.js'<% } %>,
+            'bower/angular-mocks/angular-mocks.js',
+            'dist/<%= config.libraryName.slugified %>.js',
             'test/unit/**/*.js'
         ],
 

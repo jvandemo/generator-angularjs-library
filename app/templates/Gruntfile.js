@@ -2,21 +2,20 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        library: grunt.file.readJSON('bower.json'),
         concat: {
             options: {
                 separator: ''
             },
             library: {
                 src: [
-                    'src/<%%= library.name %>/<%%= library.name %>.prefix',
-                    'src/<%%= library.name %>/<%%= library.name %>.js',
-                    'src/<%%= library.name %>/directives/**/*.js',
-                    'src/<%%= library.name %>/filters/**/*.js',
-                    'src/<%%= library.name %>/services/**/*.js',
-                    'src/<%%= library.name %>/<%%= library.name %>.suffix'
+                    'src/<%= config.libraryName.camelized %>/<%= config.libraryName.camelized %>.prefix',
+                    'src/<%= config.libraryName.camelized %>/<%= config.libraryName.camelized %>.js',
+                    'src/<%= config.libraryName.camelized %>/directives/**/*.js',
+                    'src/<%= config.libraryName.camelized %>/filters/**/*.js',
+                    'src/<%= config.libraryName.camelized %>/services/**/*.js',
+                    'src/<%= config.libraryName.camelized %>/<%= config.libraryName.camelized %>.suffix'
                 ],
-                dest: 'dist/<%%= library.name %>.js'
+                dest: 'dist/<%= config.libraryName.slugified %>.js'
             }
         },
         uglify: {
@@ -25,13 +24,13 @@ module.exports = function (grunt) {
             },
             jid: {
                 files: {
-                    'dist/<%%= library.name %>.min.js': ['<%%= concat.library.dest %>']
+                    'dist/<%= config.libraryName.slugified %>.min.js': ['<%%= concat.library.dest %>']
                 }
             }
         },
         jshint: {
             beforeConcat: {
-                src: ['gruntfile.js', '<%%= library.name %>/**/*.js']
+                src: ['gruntfile.js', '<%= config.libraryName.camelized %>/**/*.js']
             },
             afterConcat: {
                 src: [

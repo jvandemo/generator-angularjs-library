@@ -1,5 +1,5 @@
 {
-    "name": "<%= _.slugify(libraryName) %>",
+    "name": "<%= config.libraryName.slugified %>",
     "version": "0.0.0",
     "dependencies": {},
     "devDependencies": {

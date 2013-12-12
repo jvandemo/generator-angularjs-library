@@ -3,7 +3,7 @@
 // Set the jasmine fixture path
 // jasmine.getFixtures().fixturesPath = 'base/';
 
-describe('<%= libraryName %>', function() {
+describe('<%= config.libraryName.orginal %>', function() {
 
     var module;
     var dependencies;
@@ -16,29 +16,29 @@ describe('<%= libraryName %>', function() {
     beforeEach(function() {
 
         // Get module
-        module = angular.module('<%= libraryName %>');
+        module = angular.module('<%= config.libraryName.camelized %>');
         dependencies = module.requires;
     });
 
     it('should load config module', function() {
-        expect(hasModule('<%= libraryName %>.config')).toBeTruthy();
+        expect(hasModule('<%= config.libraryName.camelized %>.config')).toBeTruthy();
     });
 
-    <% if(includeModuleFilters) { %>
+    <% if(config.includeModuleFilters) { %>
     it('should load filters module', function() {
-        expect(hasModule('<%= libraryName %>.filters')).toBeTruthy();
+        expect(hasModule('<%= config.libraryName.camelized %>.filters')).toBeTruthy();
     });
     <% } %>
 
-    <% if(includeModuleDirectives) { %>
+    <% if(config.includeModuleDirectives) { %>
     it('should load directives module', function() {
-        expect(hasModule('<%= libraryName %>.directives')).toBeTruthy();
+        expect(hasModule('<%= config.libraryName.camelized %>.directives')).toBeTruthy();
     });
     <% } %>
 
-    <% if(includeModuleServices) { %>
+    <% if(config.includeModuleServices) { %>
     it('should load services module', function() {
-        expect(hasModule('<%= libraryName %>.services')).toBeTruthy();
+        expect(hasModule('<%= config.libraryName.camelized %>.services')).toBeTruthy();
     });
     <% } %>
 

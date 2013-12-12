@@ -3,22 +3,22 @@
 // before all nested files are concatenated by Grunt
 
 // Config
-angular.module('<%= libraryName %>.config', [])
-    .value('<%= libraryName %>.config', {
+angular.module('<%= config.libraryName.camelized %>.config', [])
+    .value('<%= config.libraryName.camelized %>.config', {
         debug: true
     });
 
-// Modules<% if (includeModuleDirectives){ %>
-angular.module('<%= libraryName %>.directives', []);<% } %><% if (includeModuleFilters){ %>
-angular.module('<%= libraryName %>.filters', []);<% } %><% if (includeModuleServices){ %>
-angular.module('<%= libraryName %>.services', []);<% } %>
-angular.module('<%= libraryName %>',
+// Modules<% if (config.includeModuleDirectives){ %>
+angular.module('<%= config.libraryName.camelized %>.directives', []);<% } %><% if (config.includeModuleFilters){ %>
+angular.module('<%= config.libraryName.camelized %>.filters', []);<% } %><% if (config.includeModuleServices){ %>
+angular.module('<%= config.libraryName.camelized %>.services', []);<% } %>
+angular.module('<%= config.libraryName.camelized %>',
     [
-        '<%= libraryName %>.config'<% if (includeModuleDirectives){ %>,
-        '<%= libraryName %>.directives'<% } %><% if (includeModuleFilters){ %>,
-        '<%= libraryName %>.filters'<% } %><% if (includeModuleServices){ %>,
-        '<%= libraryName %>.services'<% } %><% if (includeAngularModuleResource){ %>,
-        'ngResource'<% } %><% if (includeAngularModuleCookies){ %>,
-        'ngCookies'<% } %><% if (includeAngularModuleSanitize){ %>,
+        '<%= config.libraryName.camelized %>.config'<% if (config.includeModuleDirectives){ %>,
+        '<%= config.libraryName.camelized %>.directives'<% } %><% if (config.includeModuleFilters){ %>,
+        '<%= config.libraryName.camelized %>.filters'<% } %><% if (config.includeModuleServices){ %>,
+        '<%= config.libraryName.camelized %>.services'<% } %><% if (config.includeAngularModuleResource){ %>,
+        'ngResource'<% } %><% if (config.includeAngularModuleCookies){ %>,
+        'ngCookies'<% } %><% if (config.includeAngularModuleSanitize){ %>,
         'ngSanitize'<% } %>
     ]);
