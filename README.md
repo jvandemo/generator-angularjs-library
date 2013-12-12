@@ -89,6 +89,11 @@ To run your unit tests: `karma start ./karma-unit.conf.js`
 
 ## Change log
 
+### v1.2.0
+
+- Added support for PhantomJS in Karma configuration
+- Fixed bower directory in gitignore
+
 ### v1.1.0
 
 - Added support for library names with spaces and capitals
