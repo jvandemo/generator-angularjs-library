@@ -89,6 +89,10 @@ To run your unit tests: `karma start ./karma-unit.conf.js`
 
 ## Change log
 
+### v1.1.0
+
+- Added support for library names with spaces and capitals
+
 ### v1.0.3
 
 - Added chalk dependency
