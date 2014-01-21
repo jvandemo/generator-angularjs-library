@@ -1,7 +1,8 @@
 'use strict';
-var util = require('util');
-var path = require('path');
-var yeoman = require('yeoman-generator');
+var util = require('util'),
+    path = require('path'),
+    yeoman = require('yeoman-generator'),
+    chalk = require('chalk');
 
 
 var AngularjsLibraryGenerator = module.exports = function AngularjsLibraryGenerator(args, options, config) {
@@ -30,8 +31,48 @@ AngularjsLibraryGenerator.prototype.askFor = function askFor() {
 
     var prompts = [
         {
-            name: 'libraryName',
-            message: 'What do you want to call your library?',
+            type   : 'input',
+            name   : 'authorName',
+            message: chalk.yellow('\n\n********************************************************************************\n' + 'Before we get started, let me verify your personal details:\n********************************************************************************\n') + '\n' +
+                'Don\'t worry, I wont stalk you, send you spam or look you up on the internet.' + '\n\n' +
+                'I only use your personal details to automatically populate the author fields in\n' +
+                'bower.json, package.json and to mention you as the owner in the LICENSE.txt file.' + '\n\n' +
+                'Your full name:',
+            validate: function(input){
+                if(/.+/.test(input)){
+                    return true;
+                }
+                return 'Please enter your full name';
+            },
+            default: this.user.git.username
+        },
+        {
+            type   : 'input',
+            name   : 'authorEmail',
+            message: 'Your email address:',
+            validate: function(input){
+                if(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(input)){
+                    return true;
+                }
+                return 'Please enter a valid email address';
+            },
+            default: this.user.git.email
+        },
+        {
+            type   : 'input',
+            name   : 'libraryName',
+            message: chalk.yellow('\n\n********************************************************************************\n' + 'Awesome, so how would you like to call your AngularJS library:\n********************************************************************************\n') + '\n' +
+                'You can use spaces and capitals.' + '\n\n' +
+                'The full library name is used in documentation e.g. "Your Library".' + '\n\n' +
+                'It is automatically camelized as module name in AngularJS e.g. "yourLibrary"\n' +
+                'and slugified for file and package names e.g. "your-library.js":\n\n' +
+                'Library name:',
+            validate: function(input){
+                if(/.+/.test(input)){
+                    return true;
+                }
+                return 'Please enter a library name';
+            },
             default: this.appname
         },
         {
@@ -76,14 +117,19 @@ AngularjsLibraryGenerator.prototype.askFor = function askFor() {
 
         this.config = {
 
+            author: {
+                name: props.authorName,
+                email: props.authorEmail
+            },
+
             // Originally a humanized string like "Project Angular_Library"
             libraryName: {
 
                 // String originally entered by user => "Project Angular_Library"
                 original: props.libraryName,
 
-                // Camelized => porjectAngularLibrary
-                camelized: this._.camelize(props.libraryName),
+                // Camelized => projectAngularLibrary
+                camelized: this._.camelize(this._.underscored(props.libraryName)),
 
                 // Dasherized (underscored and camelized to dashes) => project-angular-library
                 dasherized: this._.dasherize(props.libraryName),
@@ -106,36 +152,6 @@ AngularjsLibraryGenerator.prototype.askFor = function askFor() {
         this.config.libraryUnitTestDirectory = 'test' + '/unit/' + this.config.libraryName.camelized;
         this.config.libraryUnitE2eDirectory = 'test' + '/e2e/' + this.config.libraryName.camelized;
 
-
-
-        /*
-        // Originally a humanized string like "ClientOne Two_Three"
-        this.libraryName = {
-
-            // String originally entered by user => "ClientOne Two_Three"
-            original: props.name,
-
-            // Camelized => clientOneTwoThree
-            camelized: this._.camelize(props.name),
-
-            // Dasherized (underscored and camelized to dashes) => client-one-two-three
-            dasherized: this._.dasherize(props.name),
-
-            // Slugified (whitespace and special chars replaced by dashes (great for url's)) => clientone-two-three
-            slugified: this._.slugify(props.name),
-
-            // Array of parts => [ 'clientone', 'two', 'three' ]
-            parts: this._.slugify(props.name).split('-')
-        },
-        this.includeModuleDirectives = props.includeModuleDirectives;
-        this.includeModuleFilters = props.includeModuleFilters;
-        this.includeModuleServices = props.includeModuleServices;
-        this.includeAngularModuleResource = props.includeAngularModuleResource;
-        this.includeAngularModuleCookies = props.includeAngularModuleCookies;
-        this.includeAngularModuleSanitize = props.includeAngularModuleSanitize;
-        */
-
-
         cb();
     }.bind(this));
 };
@@ -147,12 +163,6 @@ AngularjsLibraryGenerator.prototype.createLibraryFiles = function createLibraryF
 
     this.mkdir('src');
     this.mkdir('test');
-
-    /*
-    var librarySrcDirectory = this.librarySrcDirectory = 'src' + '/' + this.libraryName.camelized;
-    var libraryUnitTestDirectory = this.librarySrcDirectory = 'test' + '/unit/' + this.libraryName.camelized;
-    var libraryUnitE2eDirectory = this.librarySrcDirectory = 'test' + '/e2e/' + this.libraryName.camelized;
-*/
 
     this.mkdir(this.config.librarySrcDirectory);
     this.mkdir(this.config.libraryUnitTestDirectory);
@@ -208,6 +218,20 @@ AngularjsLibraryGenerator.prototype.createBowerFiles = function createBowerFiles
  */
 AngularjsLibraryGenerator.prototype.createKarmaConfig = function createKarmaConfig() {
     this.template('karma-unit.conf.js', 'karma-unit.conf.js', {config: this.config});
+};
+
+/**
+ * Create README.md
+ */
+AngularjsLibraryGenerator.prototype.createReadmeMd = function createReadmeMd() {
+    this.template('README.md', 'README.md', {config: this.config});
+};
+
+/**
+ * Create LICENSE.txt
+ */
+AngularjsLibraryGenerator.prototype.createLicenseTxt = function createLicenseTxt() {
+    this.template('LICENSE.txt', 'LICENSE.txt', {config: this.config});
 };
 
 AngularjsLibraryGenerator.prototype.createProjectFiles = function createProjectFiles() {

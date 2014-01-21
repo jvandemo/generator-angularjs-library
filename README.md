@@ -22,35 +22,40 @@ The generator:
 - creates a custom `Gruntfile.js` to build, minify and uglify your library
 - creates a custom `karma-unit.conf.js` to let karma run your unit tests
 - creates a custom `bower.json` file for your library
-- creates a custom `package.json`file for your library
+- creates a custom `package.json` file for your library
+- creates a custom `README.md` file for your library
+- creates a custom `LICENSE.txt` file for your library
 
 Here's an overview of the files that are automatically generated for you:
 
-    .
-    | Gruntfile.js (custom Gruntfile.js to build your library for distribution)
-    | bower.json (custom bower.json file)
-    | components (bower dependencies)
-    | dist
-    |---- yourLibraryName.js (optionally built by Grunt)
-    |---- yourLibraryName.min.js (optionally built by Grunt)
-    | karma-unit.conf.js (custom karma configuration for unit testing)
-    | node_modules (node dependencies)
-    | package.json (custom package.json file)
-    | src
-    |---- yourLibraryName
-    |     |---- directives (optional)
-    |     |---- filters (optional)
-    |     |---- yourLibraryName.js (boilerplate for your AngularJS library)
-    |     |---- yourLibraryName.prefix
-    |     |---- yourLibraryName.suffix
-    |     |---- services (optional)
-    | test
-    |---- e2e
-    |     |---- yourLibraryName
-    |---- unit
-    |     |---- yourLibraryName
-    |     |     |---- yourLibraryName.js
-
+```shell
+.
+├── Gruntfile.js                        # Grunt config to build your library
+├── LICENSE.txt                         # License file with your name in it
+├── README.md                           # Basic README.md file with title of library
+├── bower                               # Bower dependencies
+├── bower.json                          # Bower config for your library
+├── dist                                # Directory that contains files built by grunt
+├── karma-unit.conf.js                  # Karma config to run your unit tests
+├── package.json                        # Npm config for your library
+├── src                                 # Source directory with modular structure
+│   └── yourLibraryName
+│       ├── directives
+│       ├── filters
+│       ├── services
+│       ├── yourLibraryName.js
+│       ├── yourLibraryName.prefix
+│       └── yourLibraryName.suffix
+└── test                                # Test directory with modular structure
+    ├── e2e
+    │   └── yourLibraryName
+    └── unit
+        └── yourLibraryName
+            ├── directives
+            ├── filters
+            ├── services
+            └── yourLibraryName.js
+```
 
 ## What's left for you
 
@@ -88,6 +93,16 @@ To run your unit tests: `karma start ./karma-unit.conf.js`
 - [Why is there a `.prefix` and a `.suffix` file and why do they do?](https://github.com/jvandemo/generator-angularjs-library/issues/2)
 
 ## Change log
+
+### v1.3.0
+
+- Added automatic creation of README.md
+- Added automatic creation of LICENSE.txt
+- Added support for author name and email
+
+### v1.2.1
+
+- Removed obsolete dependencies
 
 ### v1.2.0
 

@@ -1,6 +1,12 @@
 {
     "name": "<%= config.libraryName.slugified %>",
     "version": "0.0.0",
+    "authors"        : [
+        {
+            "name"    : "<%= config.author.name %>",
+            "email"   : "<%= config.author.email %>"
+        }
+    ],
     "main": ["dist/<%= config.libraryName.slugified %>.js"],
     "ignore": [
         "src",
