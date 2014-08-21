@@ -2,11 +2,16 @@
 
 Create standalone AngularJS component libraries is seconds!
 
-This generator is **NOT** made to generate complete AngularJS applications.
+If you want to create a standalone library with filters, directives, services, etc for use in your AngularJS applications, then this generator may just be what you need.
 
-If you want to generate a complete AngularJS web application with routes, views, etc... then use [generator-angular](https://github.com/yeoman/generator-angular).
+The generator automatically:
 
-If you want to create a standalone library with filters, directives, services, etc for use in your AngularJS applications, then this generator is just what you need.
+- creates a complete directory structure with boilerplate code for your AngularJS library
+- creates a complete directory structure for your tests
+- configures Gulp to build your code and automate testing
+- sets up Karma to run your unit tests
+
+> This generator is **NOT** made to generate complete AngularJS applications. If you want to generate a complete AngularJS web application with routes, views, etc then please use [generator-angular](https://github.com/yeoman/generator-angular).
 
 ## Quick start
 
@@ -32,7 +37,21 @@ Answer the questions and the generator will create the boilerplate for your libr
 
 ![AngularJS library generator](http://i.imgur.com/R4upcwp.png)
 
-## Output
+## What the generator does for you
+
+The generator automatically:
+
+- creates a `src` directory structure with the boilerplate code for your AngularJS library
+- creates a `test` directory structure to store your unit tests and e2e tests
+- creates initial unit tests in the `test/unit/` directory
+- creates a custom `gulpfile.js` to build, minify and uglify your library
+- creates a custom `karma-src.conf.js` to let karma run your unit tests
+- creates a custom `karma-dist-concatenated.conf.js` to let karma run your unit tests
+- creates a custom `karma-dist-minified.conf.js` to let karma run your unit tests
+- creates a custom `bower.json` file for your library
+- creates a custom `package.json` file for your library
+- creates a custom `README.md` file for your library
+- creates a custom `LICENSE` file for your library
 
 Running the generator using library name "Your Library" will result in the following files being generated for you:
 
@@ -126,6 +145,10 @@ This allows you to unit test all different versions of your code to make sure th
 ## Frequently asked questions
 
 - [Why is there a `.prefix` and a `.suffix` file and why do they do?](https://github.com/jvandemo/generator-angularjs-library/issues/2)
+
+## Want to contribute?
+
+Help make this project better - fork and send a PR or create an (issue)[https://github.com/jvandemo/generator-angularjs-library/issues].
 
 ## Change log
 
