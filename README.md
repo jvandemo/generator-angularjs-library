@@ -30,7 +30,7 @@ $ yo angularjs-library
 
 Answer the questions and the generator will create the boilerplate for your library:
 
-![AngularJS library generator](http://i.imgur.com/R4upcwp)
+![AngularJS library generator](http://i.imgur.com/R4upcwp.png)
 
 ## Output
 
@@ -91,7 +91,7 @@ Then all files in the `src` directory will be concatenated into 2 files in the `
 - `<yourLibraryName>.js`: regular version of your library to use in a development environment
 - `<yourLibraryName>.min.js`: minified version of your library to use in a production environment
 
-![AngularJS library generator](http://i.imgur.com/v958Eml)
+![AngularJS library generator](http://i.imgur.com/v958Eml.png)
 
 ## How to test your code
 
@@ -119,7 +119,7 @@ $ gulp test-dist-concatenated
 $ gulp test-dist-minified
 ```
 
-![AngularJS library generator](http://i.imgur.com/FL7exkv)
+![AngularJS library generator](http://i.imgur.com/FL7exkv.png)
 
 This allows you to unit test all different versions of your code to make sure they all work as expected.
 
