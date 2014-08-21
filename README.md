@@ -1,46 +1,105 @@
-# generator-angularjs-library [![Build Status](https://secure.travis-ci.org/jvandemo/generator-angularjs-library.png?branch=master)](https://travis-ci.org/jvandemo/generator-angularjs-library)
+# AngularJS library generator
 
-> [Yeoman](http://yeoman.io) generator
+Create standalone AngularJS component libraries is seconds!
 
+This generator is *NOT* made to generate complete AngularJS applications.
 
-## Getting Started
+If you want to generate a complete AngularJS web application with routes, views, etc... then use [generator-angular](https://github.com/yeoman/generator-angular).
 
-### What is Yeoman?
+If you want to create a standalone library with filters, directives, services, etc for use in your AngularJS applications, then this generator is just what you need.
 
-Trick question. It's not a thing. It's this guy:
+## Quick start
 
-![](http://i.imgur.com/JHaAlBJ.png)
+Make sure you have [yeoman](http://yeoman.io) installed:
 
-Basically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.
-
-Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*
-
-```bash
+```sh
 npm install -g yo
 ```
 
-### Yeoman Generators
+Install the generator:
 
-Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
-
-To install generator-angularjs-library from npm, run:
-
-```bash
+```sh
 npm install -g generator-angularjs-library
 ```
 
-Finally, initiate the generator:
+Run:
 
-```bash
+```sh
 yo angularjs-library
 ```
 
-### Getting To Know Yeoman
+Answer the questions and the generator will create the boilerplate for your library.
 
-Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
+## Output
 
-If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
+Running the generator using library name "Your Library" will result in the following files being generated for you:
 
+```sh
+.
+├── LICENSE                                     # License file with your name in it
+├── README.md                                   # Basic README.md file with title of library
+├── bower.json                                  # Bower configuration for your library
+├── dist
+│   ├── your-library.js                         # Your library ready to use in your application
+│   └── your-library.min.js                     # Minified version of your library for production
+├── gulpfile.js                                 # Gulp configuration to build your library
+├── karma-dist-concatenated.conf.js             # Karma configuration to run unit tests using your-library.js
+├── karma-dist-minified.conf.js                 # Karma configuration to run unit tests using your-library.min.js
+├── karma-src.conf.js                           # Karma configuration to run unit tests using src/**/*.js
+├── package.json                                # Npm configuration for your library
+├── src                                         # Source directory with modular structure
+│   └── yourLibrary
+│       ├── directives
+│       ├── filters
+│       ├── services
+│       ├── yourLibrary.js
+│       ├── yourLibrary.prefix
+│       └── yourLibrary.suffix
+└── test                                        # Test directory with modulare structure
+    ├── e2e
+    │   └── yourLibrary
+    └── unit
+        └── yourLibrary
+            ├── directives
+            ├── filters
+            ├── services
+            └── yourLibrarySpec.js
+
+14 directories, 14 files
+```
+
+## Frequently asked questions
+
+- [Why is there a `.prefix` and a `.suffix` file and why do they do?](https://github.com/jvandemo/generator-angularjs-library/issues/2)
+
+## Change log
+
+### v1.4.0
+
+- Update bower and npm package versions
+
+### v1.3.0
+
+- Added automatic creation of README.md
+- Added automatic creation of LICENSE.txt
+- Added support for author name and email
+
+### v1.2.1
+
+- Removed obsolete dependencies
+
+### v1.2.0
+
+- Added support for PhantomJS in Karma configuration
+- Fixed bower directory in gitignore
+
+### v1.1.0
+
+- Added support for library names with spaces and capitals
+
+### v1.0.3
+
+- Added chalk dependency
 
 ## License
 
