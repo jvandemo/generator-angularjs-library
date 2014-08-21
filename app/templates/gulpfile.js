@@ -50,3 +50,5 @@ gulp.task('test-dist-minified', function (done) {
     singleRun: true
   }, done);
 });
+
+gulp.task('default', ['test-src', 'build']);
