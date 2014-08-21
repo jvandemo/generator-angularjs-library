@@ -1,0 +1,37 @@
+{
+  "name": "generator-angularjs-library",
+  "version": "2.0.0",
+  "description": "Yeoman generator to create an AngularJS component library",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "jvandemo/generator-angularjs-library",
+  "author": {
+    "name": "Jurgen Van de Moere",
+    "email": "jurgen@webberid.com",
+    "url": "https://github.com/jvandemo"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "chalk": "^0.5.1",
+    "lodash": "^2.4.1",
+    "yeoman-generator": "^0.17.0",
+    "yosay": "^0.3.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  }
+}
