@@ -27,6 +27,13 @@ Install the generator:
 $ npm install -g generator-angularjs-library
 ```
 
+Create a new project directory:
+
+```sh
+$ mkdir project
+$ cd project
+```
+
 Run:
 
 ```sh
