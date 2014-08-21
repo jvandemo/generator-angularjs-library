@@ -89,13 +89,11 @@ Running the generator using library name "Your Library" will result in the follo
 14 directories, 14 files
 ```
 
-## How to add code to your library
+## How to use the generated boilerplate
 
-The basic library structure is automatically for you in the `src` folder.
+The basic library structure is automatically created for you in the `src` folder.
 
-You can edit the existing files or add additional files in the `src` folder to add functionality to your library.
-
-## How to build your library
+You can edit the existing files or add additional files in the `src` folder to add components to your library.
 
 Once you have added files in the `src` directory, you can update the files in the `dist` directory using:
 
@@ -112,20 +110,15 @@ Then all files in the `src` directory will be concatenated into 2 files in the `
 
 ![AngularJS library generator](http://i.imgur.com/v958Eml.png)
 
-## How to test your code
+## Manually testing your code
 
-The generator automatically creates boilerplate for your initial tests:
-
-- Unit tests are stored in `test/unit/`
-- E2E tests are stored in `test/e2e/`
-
-It also creates 3 configurations for unit testing:
+The generator creates 3 configurations for unit testing:
 
 - `karma-src.conf.js`: run unit tests using `src/**/*.js`
 - `karma-dist-concatenated.conf.js`: run unit tests using `dist/<yourLibraryName>.js`
 - `karma-dist-minified.conf.js`: run unit tests using `dist/<yourLibraryName>.min.js`
 
-To run the different test suites, just use the preconfigured Gulp tasks:
+By default, `gulp` will run `karma-src.conf.js`, but you can use the following preconfigured Gulp tasks to specify the suite you want to run:
 
 ```sh
 # Run unit tests using src/**/*.js
@@ -140,7 +133,7 @@ $ gulp test-dist-minified
 
 ![AngularJS library generator](http://i.imgur.com/FL7exkv.png)
 
-This allows you to unit test all different versions of your code to make sure they all work as expected.
+This allows you to unit test the different builds of your code to ensure they all work as expected.
 
 ## Frequently asked questions
 
