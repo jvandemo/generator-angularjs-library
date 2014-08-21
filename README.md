@@ -76,9 +76,15 @@ You can edit the existing files or add additional files in the `src` folder to a
 
 ## How to build your library
 
-Run: `gulp build`
+Once you have added files in the `src` directory, you can update the files in the `dist` directory using:
 
-All files in the `src` directory will be concatenated into 2 files in the `dist` directory:
+```sh
+gulp
+```
+
+First gulp will run all unit tests using the code in your `src` directory to make sure the code is fine.
+
+Then all files in the `src` directory will be concatenated into 2 files in the `dist` directory:
 
 - `<yourLibraryName>.js`: regular version of your library to use in a development environment
 - `<yourLibraryName>.min.js`: minified version of your library to use in a production environment
