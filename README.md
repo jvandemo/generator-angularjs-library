@@ -28,7 +28,9 @@ Run:
 $ yo angularjs-library
 ```
 
-Answer the questions and the generator will create the boilerplate for your library.
+Answer the questions and the generator will create the boilerplate for your library:
+
+![AngularJS library generator](http://i.imgur.com/xz10dGF.png)
 
 ## Output
 
