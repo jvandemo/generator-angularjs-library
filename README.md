@@ -133,6 +133,7 @@ This allows you to unit test all different versions of your code to make sure th
 
 - Completely rewritten to support newer version of Yeoman
 - Now uses Gulp instead of Grunt as task runner
+- Now uses Mocha as test framework instead of Jasmine
 
 ### v1.4.0
 
