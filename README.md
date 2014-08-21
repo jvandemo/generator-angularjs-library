@@ -2,7 +2,7 @@
 
 Create standalone AngularJS component libraries is seconds!
 
-This generator is *NOT* made to generate complete AngularJS applications.
+This generator is **NOT** made to generate complete AngularJS applications.
 
 If you want to generate a complete AngularJS web application with routes, views, etc... then use [generator-angular](https://github.com/yeoman/generator-angular).
 
@@ -68,11 +68,59 @@ Running the generator using library name "Your Library" will result in the follo
 14 directories, 14 files
 ```
 
+## How to add code to your library
+
+The basic library structure is automatically for you in the `src` folder.
+
+You can edit the existing files or add additional files in the `src` folder to add functionality to your library.
+
+## How to build your library
+
+Run: `gulp build`
+
+All files in the `src` directory will be concatenated into 2 files in the `dist` directory:
+
+- `<yourLibraryName>.js`: regular version of your library to use in a development environment
+- `<yourLibraryName>.min.js`: minified version of your library to use in a production environment
+
+## How to test your code
+
+The generator automatically creates boilerplate for your initial tests:
+
+- Unit tests are stored in `test/unit/`
+- E2E tests are stored in `test/e2e/`
+
+It also creates 3 configurations for unit testing:
+
+- `karma-src.conf.js`: run unit tests using `src/**/*.js`
+- `karma-dist-concatenated.conf.js`: run unit tests using `dist/<yourLibraryName>.js`
+- `karma-dist-minified.conf.js`: run unit tests using `dist/<yourLibraryName>.min.js`
+
+To run the different test suites, just use the preconfigured Gulp tasks:
+
+```sh
+# Run unit tests using src/**/*.js
+$ gulp test-src
+
+# Run unit tests using dist/<yourLibraryName>.js
+$ gulp test-dist-concatenated
+
+# Run unit tests using dist/<yourLibraryName>.min.js
+$ gulp test-dist-minified
+```
+
+This allows you to unit test all different versions of your code to make sure they all work as expected.
+
 ## Frequently asked questions
 
 - [Why is there a `.prefix` and a `.suffix` file and why do they do?](https://github.com/jvandemo/generator-angularjs-library/issues/2)
 
 ## Change log
+
+### v2.0.0
+
+- Completely rewritten to support newer version of Yeoman
+- Now uses Gulp instead of Grunt as task runner
 
 ### v1.4.0
 
