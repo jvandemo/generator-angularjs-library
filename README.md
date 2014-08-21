@@ -96,6 +96,10 @@ To run your unit tests: `karma start ./karma-unit.conf.js`
 
 ## Change log
 
+### v1.4.0
+
+- Update bower and npm package versions
+
 ### v1.3.0
 
 - Added automatic creation of README.md
