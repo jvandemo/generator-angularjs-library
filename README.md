@@ -2,6 +2,8 @@
 
 Create standalone AngularJS component libraries in seconds!
 
+![Technologies](http://i.imgur.com/c8Ls6Uo.png)
+
 If you want to create a standalone library with filters, directives, services, etc for use in your AngularJS applications, then this generator may just be what you need.
 
 The generator automatically:
