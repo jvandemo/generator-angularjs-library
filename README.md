@@ -2,7 +2,9 @@
 
 [Yeoman](http://yeoman.io) generator to create standalone AngularJS component libraries in seconds!
 
-![Technologies](http://i.imgur.com/c8Ls6Uo.png)
+![Overview](http://i.imgur.com/KR6fT67.png)
+
+## In short
 
 If you want to create a standalone library with filters, directives, services, etc for use in your AngularJS applications, then this generator may just be what you need.
 
