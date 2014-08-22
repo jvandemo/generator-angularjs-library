@@ -1,6 +1,6 @@
 # AngularJS component library generator
 
-Create standalone AngularJS component libraries in seconds!
+[Yeoman](http://yeoman.io) generator to create standalone AngularJS component libraries in seconds!
 
 ![Technologies](http://i.imgur.com/c8Ls6Uo.png)
 
