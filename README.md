@@ -1,5 +1,7 @@
 # AngularJS component library generator
 
+[![Build Status](https://travis-ci.org/jvandemo/generator-angularjs-library.png?branch=master)](https://travis-ci.org/jvandemo/generator-angularjs-library)
+
 [Yeoman](http://yeoman.io) generator to create standalone AngularJS component libraries in seconds!
 
 ![Overview](http://i.imgur.com/KR6fT67.png)
