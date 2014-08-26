@@ -161,6 +161,7 @@ Help make this project better - fork and send a PR or create an (issue)[https://
 - Completely rewritten to support newer version of Yeoman
 - Now uses Gulp instead of Grunt as task runner
 - Now uses Mocha as test framework instead of Jasmine
+- Add travis
 
 ### v1.4.0
 
