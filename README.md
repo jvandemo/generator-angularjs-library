@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.org/jvandemo/generator-angularjs-library.png?branch=master)](https://travis-ci.org/jvandemo/generator-angularjs-library)
 
-![Overview](http://i.imgur.com/KR6fT67.png)
+![generator-angularjs-library](https://cloud.githubusercontent.com/assets/1859381/5644571/50feead4-9665-11e4-95df-85b180d957d9.png)
 
 ## In short
 
