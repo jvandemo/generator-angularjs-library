@@ -20,7 +20,12 @@
     "app"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "angular",
+    "angularjs",
+    "library",
+    "generator",
+    "code"
   ],
   "dependencies": {
     "chalk": "^0.5.1",
