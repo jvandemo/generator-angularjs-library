@@ -142,9 +142,9 @@ var AngularjsLibraryGenerator = yeoman.generators.Base.extend({
         includeAngularModuleSanitize: props.includeAngularModuleSanitize
       };
 
-      this.props.librarySrcDirectory = 'src' + '/' + this.props.libraryName.camelized;
-      this.props.libraryUnitTestDirectory = 'test' + '/unit/' + this.props.libraryName.camelized;
-      this.props.libraryUnitE2eDirectory = 'test' + '/e2e/' + this.props.libraryName.camelized;
+      this.props.librarySrcDirectory = 'src' + '/' + this.props.libraryName.dasherized;
+      this.props.libraryUnitTestDirectory = 'test' + '/unit/' + this.props.libraryName.dasherized;
+      this.props.libraryUnitE2eDirectory = 'test' + '/e2e/' + this.props.libraryName.dasherized;
 
       this.config.set('props', this.props);
 
@@ -194,9 +194,7 @@ var AngularjsLibraryGenerator = yeoman.generators.Base.extend({
         this.mkdir(this.props.libraryUnitTestDirectory + '/services');
       }
 
-      this.template('src/library/library.js', this.props.librarySrcDirectory + '/' + this.props.libraryName.camelized + '.js', {config: this.props});
-      this.template('src/library/library.prefix', this.props.librarySrcDirectory + '/' + this.props.libraryName.camelized + '.prefix', {config: this.props});
-      this.template('src/library/library.suffix', this.props.librarySrcDirectory + '/' + this.props.libraryName.camelized + '.suffix', {config: this.props});
+      this.template('src/library/library.module.js', this.props.librarySrcDirectory + '/' + this.props.libraryName.camelized + '.module.js', {config: this.props});
 
       this.template('test/unit/library/librarySpec.js', this.props.libraryUnitTestDirectory + '/' + this.props.libraryName.camelized + 'Spec.js', {config: this.props});
 

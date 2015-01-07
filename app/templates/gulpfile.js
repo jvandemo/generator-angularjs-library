@@ -1,24 +1,68 @@
-var gulp = require('gulp'),
-    karma = require('karma').server,
-    concat = require('gulp-concat'),
-    uglify = require('gulp-uglify'),
-    rename = require('gulp-rename'),
-    sourceFiles = [
-      'src/<%= config.libraryName.camelized %>/<%= config.libraryName.camelized %>.prefix',
-      'src/<%= config.libraryName.camelized %>/<%= config.libraryName.camelized %>.js',
-      'src/<%= config.libraryName.camelized %>/directives/**/*.js',
-      'src/<%= config.libraryName.camelized %>/filters/**/*.js',
-      'src/<%= config.libraryName.camelized %>/services/**/*.js',
-      'src/<%= config.libraryName.camelized %>/<%= config.libraryName.camelized %>.suffix'
-    ];
+var gulp = require('gulp');
+var karma = require('karma').server;
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
+var path = require('path');
+var plumber = require('gulp-plumber');
+var runSequence = require('run-sequence');
+var jshint = require('gulp-jshint');
+
+/**
+ * File patterns
+ **/
+
+// Root directory
+var rootDirectory = path.resolve('./');
+
+// Source directory for build process
+var sourceDirectory = path.join(rootDirectory, './src');
+
+var sourceFiles = [
+
+  // Make sure module files are handled first
+  path.join(sourceDirectory, '/**/*.module.js'),
+
+  // Then add all JavaScript files
+  path.join(sourceDirectory, '/**/*.js')
+];
 
 gulp.task('build', function() {
   gulp.src(sourceFiles)
-    .pipe(concat('<%= config.libraryName.slugified %>.js'))
+    .pipe(plumber())
+    .pipe(concat('<%= config.libraryName.dasherized %>.js'))
     .pipe(gulp.dest('./dist/'))
     .pipe(uglify())
-    .pipe(rename('<%= config.libraryName.slugified %>.min.js'))
+    .pipe(rename('<%= config.libraryName.dasherized %>.min.js'))
     .pipe(gulp.dest('./dist'))
+});
+
+/**
+ * Process
+ */
+gulp.task('process-all', function (done) {
+  runSequence('jshint-src', 'test-src', 'build', done)
+});
+
+/**
+ * Watch task
+ */
+gulp.task('watch', function () {
+
+  // Watch JavaScript files
+  gulp.watch(sourceFiles, ['process-all']);
+});
+
+/**
+ * Validate source JavaScript
+ */
+
+gulp.task('jshint-src', function () {
+  return gulp.src(sourceFiles)
+    .pipe(plumber())
+    .pipe(jshint())
+    .pipe(jshint.reporter('jshint-stylish'))
+    .pipe(jshint.reporter('fail'))
 });
 
 /**
@@ -51,4 +95,6 @@ gulp.task('test-dist-minified', function (done) {
   }, done);
 });
 
-gulp.task('default', ['test-src', 'build']);
+gulp.task('default', function () {
+  runSequence('process-all', 'watch')
+});
