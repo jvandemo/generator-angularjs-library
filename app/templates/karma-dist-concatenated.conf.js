@@ -29,7 +29,7 @@ module.exports = function(config) {
       'bower/angular-resource/angular-resource.js'<% } %><% if (config.includeAngularModuleSanitize) { %>,
       'bower/angular-sanitize/angular-sanitize.js'<% } %>,
       'bower/angular-mocks/angular-mocks.js',
-      'dist/<%= config.libraryName.slugified %>.js',
+      'dist/<%= config.libraryName.dasherized %>.js',
       'test/unit/**/*.js'
     ],
 
