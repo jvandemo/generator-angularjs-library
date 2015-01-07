@@ -48,7 +48,7 @@ $ yo angularjs-library
 
 Answer the questions and the generator will create the boilerplate for your library:
 
-![AngularJS library generator](http://i.imgur.com/R4upcwp.png)
+![yo-angularjs-library](https://cloud.githubusercontent.com/assets/1859381/5644334/cdc12bc0-9662-11e4-991c-d0c6ac0a2389.gif)
 
 ## What the generator does for you
 
