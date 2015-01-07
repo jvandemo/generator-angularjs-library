@@ -157,7 +157,7 @@ This allows you to unit test the different builds of your code to ensure they al
 
 ## Want to contribute?
 
-Help make this project better - fork and send a PR or create an (issue)[https://github.com/jvandemo/generator-angularjs-library/issues].
+Help make this project better - fork and send a PR or create an [issue](https://github.com/jvandemo/generator-angularjs-library/issues).
 
 ## Change log
 
