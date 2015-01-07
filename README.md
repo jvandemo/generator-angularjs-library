@@ -128,7 +128,7 @@ Then all files in the `src` directory will be concatenated into 2 files in the `
 - `<your-library-name>.js`: regular version of your library to use in a development environment
 - `<your-library-name>.min.js`: minified version of your library to use in a production environment
 
-![AngularJS library generator](http://i.imgur.com/v958Eml.png)
+![gulp](https://cloud.githubusercontent.com/assets/1859381/5643937/5be842a8-965e-11e4-8189-b2cb272b1d15.gif)
 
 ## Manually testing your code
 
@@ -151,7 +151,7 @@ $ gulp test-dist-concatenated
 $ gulp test-dist-minified
 ```
 
-![AngularJS library generator](http://i.imgur.com/FL7exkv.png)
+![gulp-test-src](https://cloud.githubusercontent.com/assets/1859381/5643958/748ceb1a-965e-11e4-8c29-5fd6e79c0c12.gif)
 
 This allows you to unit test the different builds of your code to ensure they all work as expected.
 
