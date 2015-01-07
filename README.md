@@ -171,6 +171,7 @@ Help make this project better - fork and send a PR or create an [issue](https://
 - Updated bower dependencies to automatically install latest versions
 - Let travis perform bower install before running tests
 - Set default version as 0.1.0 instead of 0.0.0
+- Added v3.x.x branch
 
 ### v2.0.0
 
