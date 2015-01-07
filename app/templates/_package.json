@@ -1,6 +1,6 @@
 {
-  "name": "<%= config.libraryName.slugified %>",
-  "version": "0.0.0",
+  "name": "<%= config.libraryName.dasherized %>",
+  "version": "0.1.0",
   "author": {
     "name": "<%= config.author.name %>",
     "email": "<%= config.author.email %>"
@@ -11,8 +11,11 @@
     "chai-jquery": "^1.2.3",
     "gulp": "^3.8.7",
     "gulp-concat": "^2.3.4",
+    "gulp-jshint": "^1.8.4",
+    "gulp-plumber": "^0.6.6",
     "gulp-rename": "^1.2.0",
     "gulp-uglify": "^0.3.1",
+    "jshint-stylish": "^0.4.0",
     "karma": "^0.12.22",
     "karma-chai": "^0.1.0",
     "karma-chai-jquery": "^1.0.0",
@@ -23,6 +26,7 @@
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-sinon-chai": "^0.2.0",
     "mocha": "^1.21.4",
+    "run-sequence": "^1.0.2",
     "sinon": "^1.10.3",
     "sinon-chai": "^2.5.0"
   },
