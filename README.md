@@ -72,38 +72,6 @@ Running the generator using library name "Your Library" will result in the follo
 
 ```sh
 .
-├── LICENSE                                     # License file with your name in it
-├── README.md                                   # Basic README.md file with title of library
-├── bower.json                                  # Bower configuration for your library
-├── dist
-│   ├── your-library.js                         # Your library ready to use in your application
-│   └── your-library.min.js                     # Minified version of your library for production
-├── gulpfile.js                                 # Gulp configuration to build your library
-├── karma-dist-concatenated.conf.js             # Karma configuration to run unit tests using your-library.js
-├── karma-dist-minified.conf.js                 # Karma configuration to run unit tests using your-library.min.js
-├── karma-src.conf.js                           # Karma configuration to run unit tests using src/**/*.js
-├── package.json                                # Npm configuration for your library
-├── src                                         # Source directory with modular structure
-│   └── your-library
-│       ├── directives
-│       ├── filters
-│       ├── services
-│       └── yourLibrary.module.js
-└── test                                        # Test directory with modulare structure
-    ├── e2e
-    │   └── yourLibrary
-    └── unit
-        └── yourLibrary
-            ├── directives
-            ├── filters
-            ├── services
-            └── yourLibrarySpec.js
-
-14 directories, 14 files
-```
-
-```sh
-.
 ├── .bowerrc                                  # Configure bower directory for development
 ├── .editorconfig                             # Editor configuration for code consistency
 ├── .gitignore                                # Includes files that Git should ignore
@@ -186,10 +154,6 @@ $ gulp test-dist-minified
 ![AngularJS library generator](http://i.imgur.com/FL7exkv.png)
 
 This allows you to unit test the different builds of your code to ensure they all work as expected.
-
-## Frequently asked questions
-
-- [Why is there a `.prefix` and a `.suffix` file and why do they do?](https://github.com/jvandemo/generator-angularjs-library/issues/2)
 
 ## Want to contribute?
 
