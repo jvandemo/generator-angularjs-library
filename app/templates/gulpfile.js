@@ -63,7 +63,7 @@ gulp.task('watch', function () {
  * Validate source JavaScript
  */
 gulp.task('jshint', function () {
-  return gulp.src(sourceFiles)
+  return gulp.src(lintFiles)
     .pipe(plumber())
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
