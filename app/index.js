@@ -261,6 +261,7 @@ var AngularjsLibraryGenerator = yeoman.generators.Base.extend({
       this.copy('editorconfig', '.editorconfig');
       this.copy('jshintrc', '.jshintrc');
       this.copy('gitignore', '.gitignore');
+      this.copy('travis.yml', '.travis.yml');
     }
 
 },
