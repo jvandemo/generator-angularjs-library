@@ -161,6 +161,12 @@ Help make this project better - fork and send a PR or create an [issue](https://
 
 ## Change log
 
+### v3.1.0
+
+- Added JSHint for gulpfile.js and karma configuration files
+- Added angular as argument to module to further reduce minified output size
+- Fixed copy of `.travis.yml`
+
 ### v3.0.0
 
 - Added JSHint syntax check
