@@ -27,6 +27,12 @@ var sourceFiles = [
   path.join(sourceDirectory, '/**/*.js')
 ];
 
+var lintFiles = [
+  'gulpfile.js',
+  // Karma configuration
+  'karma-*.conf.js'
+].concat(sourceFiles);
+
 gulp.task('build', function() {
   gulp.src(sourceFiles)
     .pipe(plumber())
@@ -34,14 +40,14 @@ gulp.task('build', function() {
     .pipe(gulp.dest('./dist/'))
     .pipe(uglify())
     .pipe(rename('<%= config.libraryName.dasherized %>.min.js'))
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest('./dist'));
 });
 
 /**
  * Process
  */
 gulp.task('process-all', function (done) {
-  runSequence('jshint-src', 'test-src', 'build', done)
+  runSequence('jshint', 'test-src', 'build', done);
 });
 
 /**
@@ -56,13 +62,12 @@ gulp.task('watch', function () {
 /**
  * Validate source JavaScript
  */
-
-gulp.task('jshint-src', function () {
-  return gulp.src(sourceFiles)
+gulp.task('jshint', function () {
+  return gulp.src(lintFiles)
     .pipe(plumber())
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
-    .pipe(jshint.reporter('fail'))
+    .pipe(jshint.reporter('fail'));
 });
 
 /**
@@ -96,5 +101,5 @@ gulp.task('test-dist-minified', function (done) {
 });
 
 gulp.task('default', function () {
-  runSequence('process-all', 'watch')
+  runSequence('process-all', 'watch');
 });
