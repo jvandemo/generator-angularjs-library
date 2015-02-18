@@ -11,7 +11,9 @@
   "ignore": [
     "src",
     "test",
-    "Gruntfile.js",
+    "gulpfile.js",
+    "karma-*.conf.js",
+    "package.json",
     "**/.*"
   ],
   "dependencies": {},
