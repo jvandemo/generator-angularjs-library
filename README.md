@@ -161,6 +161,11 @@ Help make this project better - fork and send a PR or create an [issue](https://
 
 ## Change log
 
+### v3.3.0
+
+- Removed gruntfile from .gitignore
+- Added gulpfile and karma config files to .gitignore
+
 ### v3.2.0
 
 - Added spec reporter to karma for better unit test progress output (thanks @simplesthing)
