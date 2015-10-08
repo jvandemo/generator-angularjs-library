@@ -155,6 +155,56 @@ $ gulp test-dist-minified
 
 This allows you to unit test the different builds of your code to ensure they all work as expected.
 
+### Writing a Test
+Assuming knowledge of Karma, Mocha, Chai, and Sinon, you can writes tests the following way:
+
+First, register your module and its dependencies (assuming your project is named `my-lib`):
+```js
+// In src/my-lib/myLib.module.js:
+//...
+angular.module('myLib.services.SomeModuleOfServices', ['dep1', 'dep2', 'depN']);
+//...
+```
+Then write your module:
+```js
+// In src/my-lib/services/some-module-of-services.js:
+angular.module('myLib.services.SomeModuleOfServices')
+  .service('SomeSubService', function() {
+    this.foo = function() {
+      return 1234 + barBaz('quux');
+    };
+    
+    return this;
+  });
+```
+
+Then, write your tests:
+```js
+describe('SomeModuleOfServices', function() {
+  //load the module, using the convention as proposed in src/my-lib/myLib.module.js
+  beforeEach(module('myLib.services.SomeModuleOfServices'));
+  
+  describe('SomeSubService', function() {
+    var subServ = null;
+    
+    //here's the secret sauce :D
+    //since we're using Mocha, `this.SomeSubService` works as well for use throughout tests
+    beforeEach(inject(function(SomeSubService) {
+      subServ = SomeSubService;
+    }));
+    
+    it('should exist', function() {
+      expect(subServ).to.be.ok;
+    });
+    
+    it('should respond to `.foo()`', function() {
+      expect(subServ).to.respondTo('foo');
+      expect(subServ.foo).to.be.a('function');
+    });
+  });
+});
+```
+
 ## Want to contribute?
 
 Help make this project better - fork and send a PR or create an [issue](https://github.com/jvandemo/generator-angularjs-library/issues).
