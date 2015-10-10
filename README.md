@@ -155,53 +155,44 @@ $ gulp test-dist-minified
 
 This allows you to unit test the different builds of your code to ensure they all work as expected.
 
-### Writing a Test
-Assuming knowledge of Karma, Mocha, Chai, and Sinon, you can writes tests the following way:
+### How to write a test
 
-First, register your module and its dependencies (assuming your project is named `my-lib`):
-```js
-// In src/my-lib/myLib.module.js:
-//...
-angular.module('myLib.services.SomeModuleOfServices', ['dep1', 'dep2', 'depN']);
-//...
-```
-Then write your module:
-```js
-// In src/my-lib/services/some-module-of-services.js:
-angular.module('myLib.services.SomeModuleOfServices')
-  .service('SomeSubService', function() {
+Suppose you have a service:
+
+```javascript
+// src/my-lib/services/some-service.js
+angular.module('myLib.services')
+  .service('someService', function() {
     this.foo = function() {
-      return 1234 + barBaz('quux');
+      return 1234;
     };
-    
-    return this;
   });
 ```
 
-Then, write your tests:
-```js
-describe('SomeModuleOfServices', function() {
-  //load the module, using the convention as proposed in src/my-lib/myLib.module.js
-  beforeEach(module('myLib.services.SomeModuleOfServices'));
+Then you write a test like this:
+
+```javascript
+
+describe('someService', function() {
+
+  var someService;
+
+  // load the module
+  beforeEach(module('myLib.services'));
+
+  // inject the service
+  beforeEach(inject(function(_someService_) {
+    someService = _someService_;
+  }));
   
-  describe('SomeSubService', function() {
-    var subServ = null;
-    
-    //here's the secret sauce :D
-    //since we're using Mocha, `this.SomeSubService` works as well for use throughout tests
-    beforeEach(inject(function(SomeSubService) {
-      subServ = SomeSubService;
-    }));
-    
-    it('should exist', function() {
-      expect(subServ).to.be.ok;
-    });
-    
-    it('should respond to `.foo()`', function() {
-      expect(subServ).to.respondTo('foo');
-      expect(subServ.foo).to.be.a('function');
-    });
+  it('should exist', function() {
+    expect(someService).to.be.ok;
   });
+  
+  it('should have a method called foo', function() {
+    expect(someService.foo).to.be.a('function');
+  });
+  
 });
 ```
 
