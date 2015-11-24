@@ -142,9 +142,9 @@ var AngularjsLibraryGenerator = yeoman.generators.Base.extend({
         includeAngularModuleSanitize: props.includeAngularModuleSanitize
       };
 
-      this.props.librarySrcDirectory = 'src' + '/' + this.props.libraryName.dasherized;
-      this.props.libraryUnitTestDirectory = 'test' + '/unit/' + this.props.libraryName.dasherized;
-      this.props.libraryUnitE2eDirectory = 'test' + '/e2e/' + this.props.libraryName.dasherized;
+      this.props.librarySrcDirectory = 'src' + '/' + this.props.libraryName.slugified;
+      this.props.libraryUnitTestDirectory = 'test' + '/unit/' + this.props.libraryName.slugified;
+      this.props.libraryUnitE2eDirectory = 'test' + '/e2e/' + this.props.libraryName.slugified;
 
       this.config.set('props', this.props);
 
