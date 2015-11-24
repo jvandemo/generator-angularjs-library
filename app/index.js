@@ -126,7 +126,8 @@ var AngularjsLibraryGenerator = yeoman.generators.Base.extend({
           camelized: this._.camelize(this._.underscored(props.libraryName)),
 
           // Dasherized (underscored and camelized to dashes) => project-angular-library
-          dasherized: this._.dasherize(props.libraryName),
+          // convert to lowercase to avoid prefixing - when upper case libraryName
+          dasherized: this._.dasherize(props.libraryName.toLowerCase()),
 
           // Slugified (whitespace and special chars replaced by dashes (great for url's)) => project-angular-library
           slugified: this._.slugify(props.libraryName),
@@ -142,9 +143,9 @@ var AngularjsLibraryGenerator = yeoman.generators.Base.extend({
         includeAngularModuleSanitize: props.includeAngularModuleSanitize
       };
 
-      this.props.librarySrcDirectory = 'src' + '/' + this.props.libraryName.slugified;
-      this.props.libraryUnitTestDirectory = 'test' + '/unit/' + this.props.libraryName.slugified;
-      this.props.libraryUnitE2eDirectory = 'test' + '/e2e/' + this.props.libraryName.slugified;
+      this.props.librarySrcDirectory = 'src' + '/' + this.props.libraryName.dasherized;
+      this.props.libraryUnitTestDirectory = 'test' + '/unit/' + this.props.libraryName.dasherized;
+      this.props.libraryUnitE2eDirectory = 'test' + '/e2e/' + this.props.libraryName.dasherized;
 
       this.config.set('props', this.props);
 
