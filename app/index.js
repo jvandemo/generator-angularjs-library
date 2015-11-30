@@ -126,7 +126,9 @@ var AngularjsLibraryGenerator = yeoman.generators.Base.extend({
           camelized: this._.camelize(this._.underscored(props.libraryName)),
 
           // Dasherized (underscored and camelized to dashes) => project-angular-library
-          dasherized: this._.dasherize(props.libraryName),
+          // issue 28: convert 1st char of libraryName to lowercase to avoid prefixing '-'
+          //  after upgrading library could just replace with decapitalize()
+          dasherized: this._.dasherize(props.libraryName.charAt(0).toLowerCase() + props.libraryName.slice(1)),
 
           // Slugified (whitespace and special chars replaced by dashes (great for url's)) => project-angular-library
           slugified: this._.slugify(props.libraryName),

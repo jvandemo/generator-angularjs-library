@@ -18,6 +18,9 @@ var rootDirectory = path.resolve('./');
 // Source directory for build process
 var sourceDirectory = path.join(rootDirectory, './src');
 
+// tests
+var testDirectory = path.join(rootDirectory, './test/unit');
+
 var sourceFiles = [
 
   // Make sure module files are handled first
@@ -57,6 +60,9 @@ gulp.task('watch', function () {
 
   // Watch JavaScript files
   gulp.watch(sourceFiles, ['process-all']);
+
+  // watch test files and re-run unit tests when changed
+  gulp.watch(path.join(testDirectory, '/**/*.js'), ['test-src']);
 });
 
 /**
