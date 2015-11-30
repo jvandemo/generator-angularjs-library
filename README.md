@@ -202,6 +202,10 @@ Help make this project better - fork and send a PR or create an [issue](https://
 
 ## Change log
 
+### v3.3.1
+
+- Fix issue where library name was prefixed with `-` in case of capital as first character
+
 ### v3.3.0
 
 - Removed gruntfile from .gitignore
