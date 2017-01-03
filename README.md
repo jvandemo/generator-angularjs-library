@@ -15,7 +15,7 @@ The generator automatically:
 - creates a complete directory structure with boilerplate code for your [AngularJS](https://angularjs.org/) library
 - creates a complete directory structure for your tests
 - configures [Gulp](http://gulpjs.com/) to build your code and automate testing
-- sets up [Karma](http://karma-runner.github.io) to run your unit tests using [Mocha](http://visionmedia.github.io/mocha/), [Chai](http://chaijs.com/) and [Sinon](http://sinonjs.org/)
+- sets up [Karma](http://karma-runner.github.io) to run your unit tests using [Mocha](http://mochajs.org/), [Chai](http://chaijs.com/) and [Sinon](http://sinonjs.org/)
 
 > This generator is **NOT** made to generate complete AngularJS applications. If you want to generate a complete AngularJS web application with routes, views, etc then please use [generator-angular](https://github.com/yeoman/generator-angular).
 
